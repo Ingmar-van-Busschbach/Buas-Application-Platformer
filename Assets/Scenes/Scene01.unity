@@ -405,11 +405,11 @@ MonoBehaviour:
   forward: d
   backward: a
   jump: w
-  Gravity: 1100
+  Gravity: 1000
   WalkSpeed: 1000
-  drag: 1000
-  airDrag: 100
-  JumpStrength: 800
+  drag: 10
+  airDrag: 10
+  JumpStrength: 1000
   maxVelocity: 25
 --- !u!50 &111384878
 Rigidbody2D:
