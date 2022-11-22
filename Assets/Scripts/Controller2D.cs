@@ -42,13 +42,17 @@ public class Controller2D : MonoBehaviour
     public void Move(Vector2 velocity, bool convertToWorldSpace = false)
     {
         if (convertToWorldSpace)
-        {
+        {// If the input velocity is local space and does not already account for a custom LocalUp direction, convert velocity to worldspace.
             Vector2 worldVelocity = localForward * velocity.x + localUp * velocity.y;
             velocity = worldVelocity;
         }
+
         UpdateRayCastOrigins();
+
         if (showDebug) { collisionInfo.PrintData(); }
         collisionInfo.Reset();
+
+        // Project world space velocity into a new local space velocity to do calculations with.
         projectedVelocity.x = velocity.Project(localForward);
         projectedVelocity.y = velocity.Project(localUp);
 
@@ -61,10 +65,14 @@ public class Controller2D : MonoBehaviour
         {
             VerticalCollisions(ref velocity);
         }
+
+        // Recombine velocities through their own projected local axis
         velocity = localForward * projectedVelocity.x + localUp * projectedVelocity.y;
+
         // Move
         transform.Translate(velocity);
-    }
+        if (showDebug) { print("Velocity: " + velocity); }
+}
 
 
 

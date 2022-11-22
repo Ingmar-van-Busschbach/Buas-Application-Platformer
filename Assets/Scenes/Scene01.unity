@@ -3724,6 +3724,7 @@ MonoBehaviour:
     m_Bits: 128
   localUp: {x: 0, y: 1}
   showDebug: 1
+  currentVelocity: {x: 0, y: 0}
 --- !u!61 &1288823781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3828,10 +3829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b9bfa2885258a48abe7d9993fef93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 1
-  lerpStrengthX: 1
-  lerpStrengthY: 1
-  maxOffset: 4
+  lerpSpeed: 3
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &1338643024
 GameObject:
@@ -5007,7 +5005,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 332ffe8a02e3cc34f86c54f29efa1948, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
