@@ -1,0 +1,1006 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51998b23f9641a45a5628b0f416a25a, type: 3}
+  m_Name: BlackBorder
+  m_EditorClassIdentifier: 
+  defaultTile:
+    sprite: {fileID: 21300000, guid: 495ddcafb79b5cb4aa02fa7407ab74e2, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  tiles:
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 070f06cb1a23e894a9d763e08852ccce, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: d43cd092639b6964b93cd3de888aeb57, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: cdb5070a518c9a44aa72a63922d936b2, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 284a79e20bfb45340af709d6d5e201e5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: f8af74bf15443154eb0fd8bf79858e2c, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b17bf582c6dd7cf4e8b765549d586499, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: b50395469387cc34cb0375d1d2a6e08b, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: a0d8520c97bdf9c4999cae307fc8c2b9, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: c2a4f575db853cd4d9bad51c5b8a0700, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: da26b1f7bc7a701498105bd43c6d4f83, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: f65bc990d65f10543b7d66390392ecca, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0

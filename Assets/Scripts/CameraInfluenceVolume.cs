@@ -10,7 +10,7 @@ public class CameraInfluenceVolume : MonoBehaviour
     // Variables
     [SerializeField] private Vector2 offset; // Offsets the position at which the camera will focus from the transform position of the object.
     [SerializeField] private float cameraDistance = 10f;
-    [SerializeField] private float priority = 1f; // Priority uses a comparative bias system. A 10 to 1 priority ratio will mean that the camera will focus mostly at the 10 priority volume.
+    [SerializeField] private float priority = 10f; // Priority uses a comparative bias system. A 10 to 1 priority ratio will mean that the camera will focus mostly at the 10 priority volume.
     [Range(0, 35)] // Clamp to 35 as beyond that distance the current version of CameraController.cs discards the volume anyways.
     [SerializeField] private float radius = 5f;
     [Range(0.1f, 6)] // Determines how aggressive the camera will be influenced by the volume. A high exponent is more aggressive.
