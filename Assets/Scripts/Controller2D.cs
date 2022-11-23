@@ -6,25 +6,25 @@ using UnityEngine;
 public class Controller2D : MonoBehaviour
 {
     // Requisites
-    BoxCollider2D collider;
-    RayCastOrigins rayCastOrigins;
     float horizontalRaySpacing;
     float verticalRaySpacing;
+    new BoxCollider2D collider;
+    RayCastOrigins rayCastOrigins;
     Vector2 projectedVelocity;
     Vector2 localForward;
 
-    // Constants
-    const float skinWidth = 0.015f;
-    [Range(2, 25)] // Clamp to make sure collision checks are made for each corner.
-    public int horizontalRayCount = 4;
-    [Range(2, 25)] // Clamp to make sure collision checks are made for each corner.
-    public int verticalRayCount = 4;
-
     // Variables
-    public LayerMask collisionMask;
+    [SerializeField] private float skinWidth = 0.015f;
+    [SerializeField] private bool showDebug;
+    [SerializeField] private LayerMask collisionMask;
+    // Raycast settings
+    [Range(2, 25)] // Clamp to make sure collision checks are made for each corner. It is not recommended to go above 10 for performance reasons.
+    [SerializeField] private int horizontalRayCount = 4;
+    [Range(2, 25)]
+    [SerializeField] private int verticalRayCount = 4;
+
     public CollisionInfo collisionInfo;
-    public Vector2 localUp = new Vector2(0, 1);
-    public bool showDebug;
+    public Vector2 localUp = new Vector2(0, 1); // Physics controller uses a Local Up direction. The entire physics calculation uses this as its up direction, including collisions, gravity/jumping, etc.
 
 
 
@@ -33,7 +33,7 @@ public class Controller2D : MonoBehaviour
 
     void Start()
     {
-        localForward = localUp.Rotate(-90);
+        localForward = localUp.Rotate(-90); 
         collider = GetComponent<BoxCollider2D>();
         CalculateRaySpacing(); // As we only update ray spacing once, you cannot change horizontalRayCount or verticalRayCount at runtime. If those need to be changed at runtime, move this function to function Move.
     }
