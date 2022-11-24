@@ -81,7 +81,7 @@ public class Controller2D : MonoBehaviour
 
 
 
-    void Respawn()
+    public void Respawn()
     {
         transform.position = respawnLocation;
     }
@@ -197,11 +197,11 @@ public class Controller2D : MonoBehaviour
 
 
     // Local up functions
-    public void ChanceLocalUp(Vector2 newLocalUp)
+    public void ChanceLocalUp(Vector2 newLocalUp, bool flipLocalRight = false)
     {
         newLocalUp.Normalize();
         localUp = newLocalUp;
-        localForward = localUp.Rotate(-90);
+        localForward = localUp.Rotate((flipLocalRight)?90:-90);
     }
     public void RotateLocalUp(float angle)
     {

@@ -102,4 +102,13 @@ public class PlayerInput : MonoBehaviour
         // Move player
         controller.Move(velocity * Time.deltaTime, true);
     }
+
+    public void ResetVelocity(Vector2 oldLocalUp, Vector2 newLocalUp, bool flipLocalRight = false)
+    {
+        float angle = Vector2.Angle(oldLocalUp, newLocalUp);
+        print(angle);
+        velocity = velocity.Rotate(angle);
+        float projectedVelocity = velocity.Project(newLocalUp.Rotate((flipLocalRight) ? 90:-90));
+        velocity -= newLocalUp.Rotate((flipLocalRight) ? 90 : -90) * projectedVelocity * 2;
+    }
 }
