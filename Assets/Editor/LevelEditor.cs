@@ -1,7 +1,9 @@
 using UnityEditor;
 using UnityEngine;
 
+[ExecuteInEditMode]
 [CustomEditor(typeof(LevelCreator))]
+[CanEditMultipleObjects]
 public class LevelEditor : Editor
 {
     LevelCreator levelCreator;
