@@ -38,4 +38,13 @@ public class CameraInfluenceVolume : MonoBehaviour
         Vector2 adjustedLocation = (Vector2)transform.position + offset;
         return new Vector3(adjustedLocation.x, adjustedLocation.y, -cameraDistance);
     }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, (radius * Mathf.Pow(0.5f, 1/radiusExponent)));
+    }
 }
