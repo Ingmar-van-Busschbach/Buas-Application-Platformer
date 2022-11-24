@@ -7,9 +7,11 @@ public class LevelCreator : MonoBehaviour
     [SerializeField] public TileSet tileSet;
     [HideInInspector]
     public List<LevelRow> column = new List<LevelRow>();
+    public bool hasCollision = true;
     public bool fillEdges = true;
     public bool invertY = true;
     public bool spawnFloor = true;
+    public Material material;
     private List<ObjectRow> objectColumn = new List<ObjectRow>();
     private GameObject currentGameObect;
 
@@ -107,14 +109,24 @@ public class LevelCreator : MonoBehaviour
                 {
                     Tile tile = IndexTile(columnNumber, (invertY) ? column[0].row.Count - 1 - rowNumber : rowNumber);
                     currentGameObect = new GameObject("Tile [" + columnNumber + ", " + rowNumber + "]");
+                    
                     currentGameObect.transform.position = new Vector3(transform.position.x + columnNumber, transform.position.y + rowNumber, transform.position.z);
                     currentGameObect.transform.parent = transform;
-                    currentGameObect.layer = 7;
+                    
                     currentGameObect.AddComponent<SpriteRenderer>();
                     SpriteRenderer spriteRenderer = currentGameObect.GetComponent<SpriteRenderer>();
                     spriteRenderer.sprite = tile.sprite;
+                    if(material != null)
+                    {
+                        spriteRenderer.material = material;
+                    }
 
-                    currentGameObect.AddComponent<BoxCollider2D>();
+                    if (hasCollision)
+                    {
+                        currentGameObect.layer = 7;
+                        currentGameObect.AddComponent<BoxCollider2D>();
+                    }
+                    
 
                     objectColumn[columnNumber].objectRow[rowNumber] = currentGameObect;
                 }

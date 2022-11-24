@@ -12,6 +12,7 @@ public class Controller2D : MonoBehaviour
     RayCastOrigins rayCastOrigins;
     Vector2 projectedVelocity;
     Vector2 localForward;
+    Vector3 respawnLocation;
 
     // Variables
     [SerializeField] private float skinWidth = 0.015f;
@@ -33,6 +34,7 @@ public class Controller2D : MonoBehaviour
 
     void Start()
     {
+        respawnLocation = transform.position;
         localForward = localUp.Rotate(-90); 
         collider = GetComponent<BoxCollider2D>();
         CalculateRaySpacing(); // As we only update ray spacing once, you cannot change horizontalRayCount or verticalRayCount at runtime. If those need to be changed at runtime, move this function to function Move.
@@ -71,12 +73,19 @@ public class Controller2D : MonoBehaviour
 
         // Move
         transform.Translate(velocity);
+        if(transform.position.y < -10)
+        {
+            Respawn();
+        }
         if (showDebug) { print("Velocity: " + velocity); }
 }
 
 
 
-
+    void Respawn()
+    {
+        transform.position = respawnLocation;
+    }
 
     // Collision functions
     void HorizontalCollisions(ref Vector2 velocity)

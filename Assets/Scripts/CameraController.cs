@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         camera = this.gameObject.transform.GetChild(0).gameObject;
-        targetPosition = camera.transform.localPosition;
+        targetPosition = transform.position;
 
         // Get all CameraInfluenceVolumes in scene
         cameraInfluenceVolumes = FindObjectsOfType<CameraInfluenceVolume>();
