@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class LevelCreator : MonoBehaviour
 {
     [SerializeField] public TileSet tileSet;
@@ -14,6 +15,10 @@ public class LevelCreator : MonoBehaviour
     public Material material;
     private List<ObjectRow> objectColumn = new List<ObjectRow>();
     private GameObject currentGameObect;
+
+
+
+
 
     public void AddColumn()
     {
