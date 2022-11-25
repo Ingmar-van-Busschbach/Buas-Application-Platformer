@@ -75,7 +75,7 @@ public class PlayerInput : MonoBehaviour
         // Jump input
         if(Input.GetKey(jumpKey))
         {
-            if (!jumpButtonPressed && currentJumpCount < maxJumpCount)
+            if ((!jumpButtonPressed && currentJumpCount < maxJumpCount) || (!jumpButtonPressed && canJump && currentJumpCount == 0))
             {
                 jumpButtonPressed = true;
                 velocity.y = jumpVelocity;
@@ -109,6 +109,6 @@ public class PlayerInput : MonoBehaviour
         print(angle);
         velocity = velocity.Rotate(angle);
         float projectedVelocity = velocity.Project(newLocalUp.Rotate((flipLocalRight) ? 90:-90));
-        velocity -= newLocalUp.Rotate((flipLocalRight) ? 90 : -90) * projectedVelocity * 2;
+        if (flipLocalRight) { velocity -= newLocalUp.Rotate(90) * projectedVelocity * 2; }
     }
 }
