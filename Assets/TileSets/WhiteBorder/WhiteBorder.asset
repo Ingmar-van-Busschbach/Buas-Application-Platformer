@@ -1054,6 +1054,36 @@ MonoBehaviour:
       topRight: 0
       bottomLeft: 0
       bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b028f7641d1ca5740a04451d3e84c5f5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b028f7641d1ca5740a04451d3e84c5f5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: b028f7641d1ca5740a04451d3e84c5f5, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
   - sprite: {fileID: 21300000, guid: 305f448890031054c8b140ea4fed84d0, type: 3}
     tileBorder:
       top: 0
@@ -1061,6 +1091,56 @@ MonoBehaviour:
       left: 1
       right: 0
       topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 305f448890031054c8b140ea4fed84d0, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 305f448890031054c8b140ea4fed84d0, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 305f448890031054c8b140ea4fed84d0, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 1
+      right: 0
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 5ea9d90458ba654409a67db836621ae0, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 5ea9d90458ba654409a67db836621ae0, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
       topRight: 0
       bottomLeft: 0
       bottomRight: 0
@@ -1073,7 +1153,17 @@ MonoBehaviour:
       topLeft: 0
       topRight: 0
       bottomLeft: 0
-      bottomRight: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 5ea9d90458ba654409a67db836621ae0, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
   - sprite: {fileID: 21300000, guid: fcb4e93f9c995064e8c7ee4513530352, type: 3}
     tileBorder:
       top: 1
@@ -1084,3 +1174,53 @@ MonoBehaviour:
       topRight: 0
       bottomLeft: 0
       bottomRight: 0
+  - sprite: {fileID: 21300000, guid: fcb4e93f9c995064e8c7ee4513530352, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: fcb4e93f9c995064e8c7ee4513530352, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: fcb4e93f9c995064e8c7ee4513530352, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 4278cbda4ad39b64b83b48cfb9bfa903, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 4278cbda4ad39b64b83b48cfb9bfa903, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 1
+      right: 0
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1

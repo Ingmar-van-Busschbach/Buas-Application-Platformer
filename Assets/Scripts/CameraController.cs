@@ -9,7 +9,6 @@ public class CameraController : MonoBehaviour
     new GameObject camera;
     CameraInfluenceVolume[] cameraInfluenceVolumes;
     Vector3 targetPosition;
-    Vector3 smoothVelocity;
 
     // Variables
     [SerializeField] private float lerpSpeed = 3;
@@ -32,9 +31,9 @@ public class CameraController : MonoBehaviour
         if (showDebug) { print("Camera Influence Volumes found: " + cameraInfluenceVolumes.Length); }
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-        Vector3 newPosition = transform.position;
+        Vector3 newPosition = transform.position + defaultOffset;
         int volumesInRange = 0;
         List<int> indexVolumesInRange = new List<int>();
         for (int i = 0; i < cameraInfluenceVolumes.Length; i++)
