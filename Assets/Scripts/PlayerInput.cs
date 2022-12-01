@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(Controller2D))]
+[RequireComponent(typeof(Controller2D))]
 public class PlayerInput : MonoBehaviour
 {
     // Requisites
     bool canJump; // Refers to ground jump specifically. Does not affect mid-air jumps.
     bool jumpButtonPressed;
+    bool respawnButtonPressed;
     float currentVelocityX;
     float gravity;
     float jumpForgivenessTimer;
@@ -27,8 +28,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float accelerationTimeAirborne = 0.2f; // Time in seconds until max movemend speed is reached in air.
     [SerializeField] private float accelerationTimeGrounded = 0.1f; // Time in seconds until max movemend speed is reached on ground.
     // Keybinds
-    [SerializeField] private string[] horizontalInputKeys = new string[2] { "d", "a" };
-    [SerializeField] private string jumpKey = "w";
+    [SerializeField] private string[] leftKeys = new string[3] { "a", "left", "j" };
+    [SerializeField] private string[] rightKeys = new string[3] { "d", "right", "l" };
+    [SerializeField] private string[] jumpKeys = new string[4] { "w", "up", "i", "space" };
     // Debug
     [SerializeField] private bool showDebug; // Currently only shows what values have been calculated for gravity and jumpVelocity.
 
@@ -46,6 +48,19 @@ public class PlayerInput : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (( Input.GetKey("r") || Input.GetKey("backspace")))
+        {
+            if (!respawnButtonPressed)
+            {
+                respawnButtonPressed = true;
+                controller.ChanceLocalUp(new Vector2(0, 1));
+                controller.Respawn();
+            }
+        }
+        else
+        {
+            respawnButtonPressed = false;
+        }
         if (controller.collisionInfo.below)
         {// Reset jump data if grunded
             canJump = true;
@@ -64,18 +79,18 @@ public class PlayerInput : MonoBehaviour
         }
 
         // Test code to adjust local up direction of controller. Discard for production.
-        //if (Input.GetKey("space")) { controller.ChanceLocalUp(new Vector2(1, 0)); }
+        //if (Input.GetKey("space")) { controller.ChanceLocalUp(new Vector2(0.5f, 0.5f)); }
         //else { controller.ChanceLocalUp(new Vector2(0, 1)); }
 
         // Movement input
         float horizontalInput = 0;
-        if (Input.GetKey(horizontalInputKeys[0])) { horizontalInput += 1; }
-        if (Input.GetKey(horizontalInputKeys[1])) { horizontalInput -= 1; }
+        if (Input.GetKey(rightKeys[0]) || Input.GetKey(rightKeys[1]) || Input.GetKey(rightKeys[2])) { horizontalInput += 1; }
+        if (Input.GetKey(leftKeys[0]) || Input.GetKey(leftKeys[1]) || Input.GetKey(leftKeys[2])) { horizontalInput -= 1; }
 
         // Jump input
-        if(Input.GetKey(jumpKey))
+        if (Input.GetKey(jumpKeys[0]) || Input.GetKey(jumpKeys[1]) || Input.GetKey(jumpKeys[2]) || Input.GetKey(jumpKeys[3]))
         {
-            if (!jumpButtonPressed && currentJumpCount < maxJumpCount)
+            if ((!jumpButtonPressed && currentJumpCount < maxJumpCount) || (!jumpButtonPressed && canJump && currentJumpCount == 0))
             {
                 jumpButtonPressed = true;
                 velocity.y = jumpVelocity;
@@ -95,20 +110,30 @@ public class PlayerInput : MonoBehaviour
         // Acceleration
         float targetVelocityX = horizontalInput * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref currentVelocityX, (controller.collisionInfo.below)? accelerationTimeGrounded : accelerationTimeAirborne);
-        
-        // Gravity
-        velocity.y += gravity * Time.deltaTime;
 
+        // Gravity
+        //velocity.y += gravity * Time.deltaTime; // Static gravity, deprecated after implementing Antigravity apex mechanic below
+        if(velocity.y < 1.5f && velocity.y > -1.5f)
+        {// If velocity is near 0, then have reduced gravity to allow the player to time jumps better, antigravity apex mechanic
+            velocity.y += gravity * 0.75f * Time.deltaTime;
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+        velocity.y = Mathf.Clamp(velocity.y, -30, 30); // Clamp falling speed
+
+        
         // Move player
         controller.Move(velocity * Time.deltaTime, true);
     }
 
-    public void ResetVelocity(Vector2 oldLocalUp, Vector2 newLocalUp, bool flipLocalRight = false)
+    public void ResetVelocity(Vector2 oldLocalUp, Vector2 newLocalUp, bool flipLocalRight = false, bool flipLocalRightVelocity = false)
     {
         float angle = Vector2.Angle(oldLocalUp, newLocalUp);
         print(angle);
         velocity = velocity.Rotate(angle);
         float projectedVelocity = velocity.Project(newLocalUp.Rotate((flipLocalRight) ? 90:-90));
-        velocity -= newLocalUp.Rotate((flipLocalRight) ? 90 : -90) * projectedVelocity * 2;
+        if (flipLocalRight) { velocity -= newLocalUp.Rotate(90) * projectedVelocity * 2; }
     }
 }

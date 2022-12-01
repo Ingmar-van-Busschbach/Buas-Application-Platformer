@@ -10,6 +10,7 @@ public class GravityChangeVolume : MonoBehaviour
 
     [SerializeField] private Vector2 localUp = new Vector2(0, 1);
     [SerializeField] private bool flipLocalRight = false;
+    [SerializeField] private bool flipLocalRightVelocity = false;
     [SerializeField] private bool resetLocalUpOnExit = false;
     
 
@@ -33,7 +34,7 @@ public class GravityChangeVolume : MonoBehaviour
             if(oldUp != localUp)
             {
                 PlayerInput input = other.GetComponent<PlayerInput>();
-                input.ResetVelocity(oldUp, localUp, flipLocalRight);
+                input.ResetVelocity(oldUp, localUp, flipLocalRightVelocity);
                 controller.ChanceLocalUp(localUp, flipLocalRight);
             }
         }

@@ -12,7 +12,7 @@ public class Controller2D : MonoBehaviour
     RayCastOrigins rayCastOrigins;
     Vector2 projectedVelocity;
     Vector2 localForward;
-    Vector3 respawnLocation;
+    [HideInInspector] public Vector3 respawnLocation;
 
     // Variables
     [SerializeField] private float skinWidth = 0.015f;

@@ -40,6 +40,7 @@ public class LevelCreator : MonoBehaviour
             }
         }
     }
+
     public void RemoveColumn()
     {
         if(column.Count > 0)
@@ -55,6 +56,7 @@ public class LevelCreator : MonoBehaviour
             column.RemoveAt(column.Count - 1);
         }
     }
+
     public void AddRow()
     {
         for(int i = 0; i < column.Count; i++)
@@ -97,6 +99,10 @@ public class LevelCreator : MonoBehaviour
         }
     }
 
+
+
+
+
     public void GenerateLevel()
     {
         print(column);
@@ -138,6 +144,7 @@ public class LevelCreator : MonoBehaviour
             }
         }
     }
+
     public void DeleteLevel()
     {
         for (int columnNumber = 0; columnNumber < objectColumn.Count; columnNumber++)
@@ -151,6 +158,7 @@ public class LevelCreator : MonoBehaviour
             }
         }
     }
+
     public void SaveLevel(string path)
     {
         SerializedLevelData serializedLevelData = new SerializedLevelData();
@@ -185,6 +193,10 @@ public class LevelCreator : MonoBehaviour
         }
     }
 
+
+
+
+
     public Tile IndexTile(int x, int y)
     {
         TileBorders tileBorder;
@@ -206,6 +218,11 @@ public class LevelCreator : MonoBehaviour
         }
         return tileSet.defaultTile;
     }
+
+
+
+
+
     [Serializable]
     public class LevelRow
     {
@@ -222,6 +239,11 @@ public class LevelCreator : MonoBehaviour
             }
         }
     }
+
+
+
+
+
     [Serializable]
     public class ObjectRow
     {
@@ -235,6 +257,11 @@ public class LevelCreator : MonoBehaviour
             }
         }
     }
+
+
+
+
+
     [Serializable]
     public class SerializedLevelData
     {
