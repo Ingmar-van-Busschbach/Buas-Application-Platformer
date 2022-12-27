@@ -72,6 +72,7 @@ public class Controller2D : MonoBehaviour
 
         // Move
         transform.Translate(velocity);
+
         if(transform.position.y < -10)
         {
             Respawn();
@@ -162,15 +163,16 @@ public class Controller2D : MonoBehaviour
         verticalRaySpacing = bounds.size.y / (verticalRayCount - 1);
     }
 
+
+
+
+
+
     struct RayCastOrigins
     {
         public Vector2 topLeft, topRight;
         public Vector2 bottomLeft, bottomRight;
     }
-
-
-
-
 
     // Collision data functions
     public struct CollisionInfo

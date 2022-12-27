@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,8 +21,10 @@ public class PlayerInput : MonoBehaviour
     // Jumps
     [SerializeField] private float jumpHeight = 4; // Jump height in units
     [SerializeField] private float jumpForgivenessTime = 0.2f; // Time in seconds within you can use your inital to jump after falling off a platform.
-    [SerializeField] private int maxJumpCount = 2; // Includes initial jump. 0 = no jumps.
     [SerializeField] private float timeToJumpApex = 0.4f; // Time in seconds until the apex of the jump, after which the player falls back down.
+    [SerializeField] private int maxJumpCount = 2; // Includes initial jump. 0 = no jumps.
+    [SerializeField] private float antiGravityApexVelocity = 1.5f;
+    [SerializeField] private float antiGravityApexAmount = 0.75f;
     // Movement
     [SerializeField] private float moveSpeed = 6; // Move speed in units per second.
     [SerializeField] private float accelerationTimeAirborne = 0.2f; // Time in seconds until max movemend speed is reached in air.
@@ -33,17 +35,36 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private string[] jumpKeys = new string[4] { "w", "up", "i", "space" };
     // Debug
     [SerializeField] private bool showDebug; // Currently only shows what values have been calculated for gravity and jumpVelocity.
-
+    [SerializeField] private bool overridePlayerStats = false;
+    [SerializeField] private PlayerStats playerStats;
+    
+    
+    
+    
+    
     void Start()
     {
         // Get components
         controller = GetComponent<Controller2D>();
-
+        if (!overridePlayerStats && playerStats != null)
+        {
+            jumpHeight = playerStats.jumpHeight;
+            jumpForgivenessTime = playerStats.jumpForgivenessTime;
+            timeToJumpApex = playerStats.timeToJumpApex;
+            maxJumpCount = playerStats.maxJumpCount;
+            moveSpeed = playerStats.moveSpeed;
+            accelerationTimeAirborne = playerStats.accelerationTimeAirborne;
+            accelerationTimeGrounded = playerStats.accelerationTimeGrounded;
+            showDebug = playerStats.showDebug;
+            antiGravityApexVelocity = playerStats.antiGravityApexVelocity;
+            antiGravityApexAmount = playerStats.antiGravityApexAmount;
+        }
         // Setup jump variables to allow for more logical exposed settings.
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         if (showDebug) { print("Gravity: " + gravity + "   Jump Velocity: " + jumpVelocity); }
         maxJumpCount--; // Subtract initial jump from the max jump amount as it should not be included. Can delete this if maxJumps is renamed to maxAirJumps, but then it becomes unituitive.
+
     }
 
     private void FixedUpdate()
@@ -79,8 +100,8 @@ public class PlayerInput : MonoBehaviour
         }
 
         // Test code to adjust local up direction of controller. Discard for production.
-        //if (Input.GetKey("space")) { controller.ChanceLocalUp(new Vector2(0.5f, 0.5f)); }
-        //else { controller.ChanceLocalUp(new Vector2(0, 1)); }
+        // if (Input.GetKey("b")) { controller.ChanceLocalUp(new Vector2(0.5f, 0.5f)); }
+        // else { controller.ChanceLocalUp(new Vector2(0, 1)); }
 
         // Movement input
         float horizontalInput = 0;
@@ -112,10 +133,9 @@ public class PlayerInput : MonoBehaviour
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref currentVelocityX, (controller.collisionInfo.below)? accelerationTimeGrounded : accelerationTimeAirborne);
 
         // Gravity
-        //velocity.y += gravity * Time.deltaTime; // Static gravity, deprecated after implementing Antigravity apex mechanic below
-        if(velocity.y < 1.5f && velocity.y > -1.5f)
+        if(velocity.y < antiGravityApexVelocity && velocity.y > -antiGravityApexVelocity)
         {// If velocity is near 0, then have reduced gravity to allow the player to time jumps better, antigravity apex mechanic
-            velocity.y += gravity * 0.75f * Time.deltaTime;
+            velocity.y += gravity * antiGravityApexAmount * Time.deltaTime;
         }
         else
         {
