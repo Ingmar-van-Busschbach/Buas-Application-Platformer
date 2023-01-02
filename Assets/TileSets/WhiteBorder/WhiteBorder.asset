@@ -1224,3 +1224,73 @@ MonoBehaviour:
       topRight: 0
       bottomLeft: 0
       bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 96aa600513aae36488dc3d3198aa2d9e, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 0
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 19723fef36bf51644a75be1a9aa6f765, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 19723fef36bf51644a75be1a9aa6f765, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: e06568523199e59438be4424ca930643, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 1
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: e06568523199e59438be4424ca930643, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 1
+      left: 1
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 0
+      bottomRight: 0
+  - sprite: {fileID: 21300000, guid: 66c5981f648be3e4abed154e15077c11, type: 3}
+    tileBorder:
+      top: 0
+      bottom: 0
+      left: 0
+      right: 1
+      topLeft: 0
+      topRight: 1
+      bottomLeft: 0
+      bottomRight: 1
+  - sprite: {fileID: 21300000, guid: 19723fef36bf51644a75be1a9aa6f765, type: 3}
+    tileBorder:
+      top: 1
+      bottom: 1
+      left: 0
+      right: 1
+      topLeft: 1
+      topRight: 0
+      bottomLeft: 1
+      bottomRight: 0
