@@ -1,5 +1,6 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [ExecuteInEditMode]
 [CustomEditor(typeof(LevelCreator))]
@@ -128,7 +129,7 @@ public class LevelEditor : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Save Level Data"))
         {
-            string path = EditorUtility.SaveFilePanel("Save new", Application.dataPath, "LevelData", "json");
+            string path = EditorUtility.SaveFilePanel("Save new", Application.dataPath, "LevelData_" + SceneManager.GetActiveScene().name, "json");
             levelCreator.SaveLevel(path);
         }
         if (GUILayout.Button("Load Level Data"))

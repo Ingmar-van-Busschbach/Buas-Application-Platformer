@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -147,14 +147,11 @@ public class LevelCreator : MonoBehaviour
 
     public void DeleteLevel()
     {
-        for (int columnNumber = 0; columnNumber < objectColumn.Count; columnNumber++)
+        while(transform.childCount > 0)
         {
-            for (int rowNumber = 0; rowNumber < objectColumn[0].objectRow.Count; rowNumber++)
+            for (int i = 0; i < transform.childCount; i++)
             {
-                if (objectColumn[columnNumber].objectRow[rowNumber] != null)
-                {
-                    DestroyImmediate(objectColumn[columnNumber].objectRow[rowNumber]);
-                }
+                DestroyImmediate(transform.GetChild(i).gameObject);
             }
         }
     }

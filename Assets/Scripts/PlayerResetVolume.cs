@@ -1,10 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerResetVolume : MonoBehaviour
 {
-    new BoxCollider2D collider;
+    new Collider2D collider;
     new Rigidbody2D rigidbody;
 
 
@@ -13,7 +13,7 @@ public class PlayerResetVolume : MonoBehaviour
 
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        collider = GetComponent<Collider2D>();
         collider.isTrigger = true;
         rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;

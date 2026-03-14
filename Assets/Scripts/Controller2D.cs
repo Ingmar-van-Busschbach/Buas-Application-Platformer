@@ -1,10 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Controller2D : MonoBehaviour
 {
+    
     // Requisites
     float horizontalRaySpacing;
     float verticalRaySpacing;
@@ -26,7 +27,7 @@ public class Controller2D : MonoBehaviour
     public CollisionInfo collisionInfo;
     public Vector2 localUp = new Vector2(0, 1); // Physics controller uses a Local Up direction. The entire physics calculation uses this as its up direction, including collisions, gravity/jumping, etc.
     [SerializeField] private bool showDebug;
-
+    [SerializeField] private Camera camera;
 
 
 
@@ -42,6 +43,7 @@ public class Controller2D : MonoBehaviour
     // Move should only be called from function FixedUpdate to guarantee physics consistency.
     public void Move(Vector2 velocity, bool convertToWorldSpace = false)
     {
+        Vector2 currentVelocity = projectedVelocity;
         if (convertToWorldSpace)
         {// If the input velocity is local space and does not already account for a custom LocalUp direction, convert velocity to worldspace.
             Vector2 worldVelocity = localForward * velocity.x + localUp * velocity.y;
@@ -72,8 +74,18 @@ public class Controller2D : MonoBehaviour
 
         // Move
         transform.Translate(velocity);
+        Debug.Log(localUp);
+        float decelleration = currentVelocity.magnitude - projectedVelocity.magnitude;
+        if (decelleration > 0.1f)
+        {
+            if (camera.TryGetComponent(out StressReceiver stressReceiver))
+            {
+                stressReceiver.InduceStress(Mathf.Clamp(decelleration, 0, 0.15f));
+            }
+        }
 
-        if(transform.position.y < -10)
+
+        if (transform.position.y < -10)
         {
             Respawn();
         }
@@ -144,14 +156,10 @@ public class Controller2D : MonoBehaviour
     {
         Bounds bounds = collider.bounds;
         bounds.Expand(skinWidth * -2);
-        Vector2 test1 = (Vector2)bounds.center + -localUp * bounds.extents + -localForward * bounds.extents;
-        Vector2 test2 = (Vector2)bounds.center + -localUp * bounds.extents + localForward * bounds.extents;
-        Vector2 test3 = (Vector2)bounds.center + localUp * bounds.extents + -localForward * bounds.extents;
-        Vector2 test4 = (Vector2)bounds.center + localUp * bounds.extents + localForward * bounds.extents;
-        rayCastOrigins.bottomLeft = test1;//new Vector2(bounds.min.x, bounds.min.y);
-        rayCastOrigins.bottomRight = test2;//new Vector2(bounds.max.x, bounds.min.y);
-        rayCastOrigins.topLeft = test3;//new Vector2(bounds.min.x, bounds.max.y);
-        rayCastOrigins.topRight = test4;//new Vector2(bounds.max.x, bounds.max.y);
+        rayCastOrigins.bottomLeft = (Vector2)bounds.center + -localUp * bounds.extents + -localForward * bounds.extents; ;
+        rayCastOrigins.bottomRight = (Vector2)bounds.center + -localUp * bounds.extents + localForward * bounds.extents;
+        rayCastOrigins.topLeft = (Vector2)bounds.center + localUp * bounds.extents + -localForward * bounds.extents;
+        rayCastOrigins.topRight = (Vector2)bounds.center + localUp * bounds.extents + localForward * bounds.extents;
     }
 
     void CalculateRaySpacing()
