@@ -129,12 +129,12 @@ public class LevelEditor : Editor
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Save Level Data"))
         {
-            string path = EditorUtility.SaveFilePanel("Save new", Application.dataPath, "LevelData_" + SceneManager.GetActiveScene().name, "json");
+            string path = EditorUtility.SaveFilePanel("Save new", Application.dataPath + "/LevelData/", "LevelData_" + SceneManager.GetActiveScene().name, "json");
             levelCreator.SaveLevel(path);
         }
         if (GUILayout.Button("Load Level Data"))
         {
-            string path = EditorUtility.OpenFilePanel("Load new ", Application.dataPath, "json");
+            string path = EditorUtility.OpenFilePanel("Load new", Application.dataPath + "/LevelData/", "json");
             if (string.IsNullOrEmpty(path)) return;
             levelCreator.LoadLevel(path);
         }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +11,9 @@ public class PlayerStats : ScriptableObject
     public int maxJumpCount;
     public float antiGravityApexVelocity;
     public float antiGravityApexAmount;
+
+    public float lowGravityJumpHeight;
+    public float lowGravityTimeToJumpApex;
 
     public float moveSpeed;
     public float accelerationTimeAirborne;

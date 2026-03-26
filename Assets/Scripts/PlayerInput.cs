@@ -1,39 +1,51 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq.Expressions;
 
 [RequireComponent(typeof(Controller2D))]
 public class PlayerInput : MonoBehaviour
 {
     // Requisites
-    bool canJump; // Refers to ground jump specifically. Does not affect mid-air jumps.
-    bool jumpButtonPressed;
-    bool respawnButtonPressed;
-    float currentVelocityX;
-    float gravity;
-    float jumpForgivenessTimer;
-    float jumpVelocity;
-    int currentJumpCount;
-    Controller2D controller;
-    Vector2 velocity;
+    private bool canJump; // Refers to ground jump specifically. Does not affect mid-air jumps.
+    private bool jumpButtonPressed;
+    private bool respawnButtonPressed;
+    private bool isInLowGravity;
+    private float currentVelocityX;
+    private float gravity;
+    private float lowGravity;
+    private float jumpForgivenessTimer;
+    private float jumpVelocity;
+    private float lowGravityJumpVelocity;
+    private int currentJumpCount;
+    private Controller2D controller;
+    private Vector2 velocity;
 
     // Variables
-    // Jumps
+    [Header("Jump")]
     [SerializeField] private float jumpHeight = 4; // Jump height in units
     [SerializeField] private float jumpForgivenessTime = 0.2f; // Time in seconds within you can use your inital to jump after falling off a platform.
     [SerializeField] private float timeToJumpApex = 0.4f; // Time in seconds until the apex of the jump, after which the player falls back down.
     [SerializeField] private int maxJumpCount = 2; // Includes initial jump. 0 = no jumps.
     [SerializeField] private float antiGravityApexVelocity = 1.5f;
     [SerializeField] private float antiGravityApexAmount = 0.75f;
-    // Movement
+    [SerializeField] private float maxFallSpeed = 30f;
+
+    [Header("LowGravity")]
+    [SerializeField] private float lowGravityJumpHeight = 5;
+    [SerializeField] private float lowGravityTimeToJumpApex = 0.6f;
+
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 6; // Move speed in units per second.
     [SerializeField] private float accelerationTimeAirborne = 0.2f; // Time in seconds until max movemend speed is reached in air.
     [SerializeField] private float accelerationTimeGrounded = 0.1f; // Time in seconds until max movemend speed is reached on ground.
-    // Keybinds
+
+    [Header("Inputs")]
     [SerializeField] private string[] leftKeys = new string[3] { "a", "left", "j" };
     [SerializeField] private string[] rightKeys = new string[3] { "d", "right", "l" };
     [SerializeField] private string[] jumpKeys = new string[4] { "w", "up", "i", "space" };
-    // Debug
+
+    [Header("Debug")]
     [SerializeField] private bool showDebug; // Currently only shows what values have been calculated for gravity and jumpVelocity.
     [SerializeField] private bool overridePlayerStats = false;
     [SerializeField] private PlayerStats playerStats;
@@ -52,6 +64,8 @@ public class PlayerInput : MonoBehaviour
             jumpForgivenessTime = playerStats.jumpForgivenessTime;
             timeToJumpApex = playerStats.timeToJumpApex;
             maxJumpCount = playerStats.maxJumpCount;
+            lowGravityJumpHeight = playerStats.lowGravityJumpHeight;
+            lowGravityTimeToJumpApex = playerStats.lowGravityTimeToJumpApex;
             moveSpeed = playerStats.moveSpeed;
             accelerationTimeAirborne = playerStats.accelerationTimeAirborne;
             accelerationTimeGrounded = playerStats.accelerationTimeGrounded;
@@ -62,7 +76,10 @@ public class PlayerInput : MonoBehaviour
         // Setup jump variables to allow for more logical exposed settings.
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        if (showDebug) { print("Gravity: " + gravity + "   Jump Velocity: " + jumpVelocity); }
+        lowGravity = -(2 * lowGravityJumpHeight) / Mathf.Pow(lowGravityTimeToJumpApex, 2);
+        lowGravityJumpVelocity = Mathf.Abs(lowGravity) * lowGravityTimeToJumpApex;
+        if (showDebug) { Debug.Log("Gravity: " + gravity + ", Jump Velocity: " + jumpVelocity); }
+        if (showDebug) { Debug.Log("Low Gravity: " + lowGravity + ", Low Jump Velocity: " + lowGravityJumpVelocity); }
         maxJumpCount--; // Subtract initial jump from the max jump amount as it should not be included. Can delete this if maxJumps is renamed to maxAirJumps, but then it becomes unituitive.
 
     }
@@ -114,7 +131,7 @@ public class PlayerInput : MonoBehaviour
             if ((!jumpButtonPressed && currentJumpCount < maxJumpCount) || (!jumpButtonPressed && canJump && currentJumpCount == 0))
             {
                 jumpButtonPressed = true;
-                velocity.y = jumpVelocity;
+                velocity.y = isInLowGravity ? lowGravityJumpVelocity : jumpVelocity;
                 
                 if (!canJump)
                 {
@@ -135,13 +152,13 @@ public class PlayerInput : MonoBehaviour
         // Gravity
         if(velocity.y < antiGravityApexVelocity && velocity.y > -antiGravityApexVelocity)
         {// If velocity is near 0, then have reduced gravity to allow the player to time jumps better, antigravity apex mechanic
-            velocity.y += gravity * antiGravityApexAmount * Time.deltaTime;
+            velocity.y += (isInLowGravity ? lowGravity : gravity) * antiGravityApexAmount * Time.deltaTime;
         }
         else
         {
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += (isInLowGravity ? lowGravity : gravity) * Time.deltaTime;
         }
-        velocity.y = Mathf.Clamp(velocity.y, -30, 30); // Clamp falling speed
+        velocity.y = Mathf.Clamp(velocity.y, -maxFallSpeed, maxFallSpeed); // Clamp falling speed
 
         
         // Move player
@@ -155,5 +172,10 @@ public class PlayerInput : MonoBehaviour
         velocity = velocity.Rotate(angle);
         float projectedVelocity = velocity.Project(newLocalUp.Rotate((flipLocalRight) ? 90:-90));
         if (flipLocalRight) { velocity -= newLocalUp.Rotate(90) * projectedVelocity * 2; }
+    }
+
+    public void ChangeLowGravity(bool newGravity)
+    {
+        isInLowGravity = newGravity;
     }
 }

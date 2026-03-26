@@ -74,7 +74,6 @@ public class Controller2D : MonoBehaviour
 
         // Move
         transform.Translate(velocity);
-        Debug.Log(localUp);
         float decelleration = currentVelocity.magnitude - projectedVelocity.magnitude;
         if (decelleration > 0.1f)
         {

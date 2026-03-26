@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,7 +21,6 @@ public class LevelExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if (other.gameObject.layer == 6)
         {
             SceneManager.LoadScene(targetScene, LoadSceneMode.Single);

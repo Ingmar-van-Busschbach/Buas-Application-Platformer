@@ -448,6 +448,7 @@ MonoBehaviour:
   verticalRayCount: 4
   localUp: {x: 0, y: 1}
   showDebug: 0
+  camera: {fileID: 3103102812145991052}
 --- !u!114 &5213672987947728134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,6 +467,8 @@ MonoBehaviour:
   maxJumpCount: 2
   antiGravityApexVelocity: 1.5
   antiGravityApexAmount: 0.75
+  lowGravityJumpHeight: 5
+  lowGravityTimeToJumpApex: 0.6
   moveSpeed: 7
   accelerationTimeAirborne: 0.2
   accelerationTimeGrounded: 0.07

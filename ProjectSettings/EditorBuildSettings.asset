@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 82919772a2badce4a9345115dcc3df2b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevel01.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevel02.unity
     guid: 6bb2b7bde93428d45b28dbc99c4a30f3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevel03.unity
     guid: 72d9d61df342b9f44b199854f4480649
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevel04.unity
     guid: 3cac88165486fd147be285b54d58e1b2
   - enabled: 0
@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level02.unity
     guid: bbbde2632150981438d7b4edffd5891b
+  - enabled: 1
+    path: Assets/Scenes/Level03.unity
+    guid: 21e307aafbdaae34db00ac5705315b30
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
