@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq.Expressions;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Controller2D))]
 public class PlayerInput : MonoBehaviour
